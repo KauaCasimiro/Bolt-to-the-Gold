@@ -36,6 +36,8 @@ function scr_load_room(template){
     
     show_debug_message("Choosed template: " + string(obj_game_controller.current_template));
     
+    mp_grid_clear_all(obj_game_controller.path_grid);
+    
     for (var yy = 0; yy < 18; yy++) {
 	    for (var xx = 0; xx < 20; xx++) {
 	        var tile_data = tilemap_get(obj_game_controller.current_tilemap, xx, yy);
@@ -48,6 +50,9 @@ function scr_load_room(template){
 	        if (tile_index == 2)
 	        {
 				instance_create_layer(xx * 8, yy * 8, "Scene", obj_wall);
+                mp_grid_add_cell(obj_game_controller.path_grid, xx, yy);
+                
+                
 	        }
         
 			if (tile_index == 4) {
@@ -72,5 +77,4 @@ function scr_load_room(template){
 	        }
 	    }
 	}
-    
 }

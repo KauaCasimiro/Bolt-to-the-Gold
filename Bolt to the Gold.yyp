@@ -34,6 +34,7 @@
     {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},},
     {"id":{"name":"rm_game","path":"rooms/rm_game/rm_game.yy",},},
     {"id":{"name":"scr_can_see_player","path":"scripts/scr_can_see_player/scr_can_see_player.yy",},},
+    {"id":{"name":"scr_enemy_path","path":"scripts/scr_enemy_path/scr_enemy_path.yy",},},
     {"id":{"name":"scr_generate_run","path":"scripts/scr_generate_run/scr_generate_run.yy",},},
     {"id":{"name":"scr_load_room","path":"scripts/scr_load_room/scr_load_room.yy",},},
     {"id":{"name":"scr_unload_room","path":"scripts/scr_unload_room/scr_unload_room.yy",},},

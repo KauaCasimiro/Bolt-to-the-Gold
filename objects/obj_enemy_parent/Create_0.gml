@@ -20,7 +20,12 @@ patrol_direction_timer = 0;
 patrol_timer = 0;
 patrol_change_time = 60;
 
+enemy_path = -1;
+path_point = 0;
+
+path_timer = 0;
+path_update_timer = 15;
 
 function check_collision(_x, _y) {
-    return place_meeting(_x, _y, obj_wall);
+    return place_meeting(_x, _y, obj_wall) || place_meeting(_x, _y, obj_door);
 }

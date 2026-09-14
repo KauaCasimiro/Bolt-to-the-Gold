@@ -1,5 +1,7 @@
 randomize();
 
+path_grid = mp_grid_create(0, 0, 20, 18, 8, 8);
+
 template_1 = layer_get_id("Template_1");
 template_2 = layer_get_id("Template_2");
 template_3 = layer_get_id("Template_3");
@@ -27,3 +29,4 @@ next_room = function () {
 	
 	show_debug_message("Room " + string(current_room + 1) + " - Template " + string(current_template));
 }
+
