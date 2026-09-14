@@ -3,7 +3,15 @@ enum EnemyState {
     PATROL,
     CHASE,
     ATTACK
-}
+};
+
+enum EnemyType {
+    TYPE_1,
+    TYPE_2,
+    TYPE_3
+};
+
+enemy_type = EnemyType.TYPE_1;
 
 state = EnemyState.IDLE;
 
@@ -11,7 +19,7 @@ state_timer = 0;
 
 move_spd = 0.5;
 vision_radius = 50;
-atk_distance = 8;
+atk_distance = 16;
 
 move_direction = 0;
 

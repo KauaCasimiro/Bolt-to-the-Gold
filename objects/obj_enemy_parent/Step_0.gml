@@ -97,6 +97,21 @@ switch (state) {
             enemy_path = scr_enemy_path(x, y, obj_player.x, obj_player.y);
             
             path_point = 1;
+            
+            if (enemy_path == -1) {
+                move_direction = point_direction(x, y, obj_player.x, obj_player.y);
+                
+                var move_x = lengthdir_x(move_spd, move_direction);
+                var move_y = lengthdir_y(move_spd, move_direction);
+                
+                if (!check_collision(x + move_x, y)) {
+                    x += move_x;
+                }
+                
+                if (!check_collision(x, y + move_y)) {
+                    y += move_y;
+                }
+            }
         }
         
         if (enemy_path != -1) {
@@ -105,12 +120,15 @@ switch (state) {
             
             move_direction = point_direction(x, y, target_x, target_y);
             
-            var _next_x = x + lengthdir_x(move_spd, move_direction); 
-            var _next_y = y + lengthdir_y(move_spd, move_direction);
+            var _next_x = lengthdir_x(move_spd, move_direction); 
+            var _next_y = lengthdir_y(move_spd, move_direction);
              
-            if (!check_collision(_next_x, _next_y)) { 
-                x = _next_x; 
-                y = _next_y; 
+            if (!check_collision(x + _next_x, y)) { 
+                x += _next_x; 
+            }
+            
+            if (!check_collision(x, y + _next_y)) {
+                y+= _next_y;
             }
             
             if (point_distance(x, y, target_x, target_y) <= move_spd) { 
@@ -129,12 +147,29 @@ switch (state) {
         //Code to attack player
          if (!scr_can_see_player()) {
         state = EnemyState.CHASE;
-        break;
-    }
+        break; 
+        }
 
-    if (point_distance(x, y, obj_player.x, obj_player.y) > atk_distance) {
+        if (point_distance(x, y, obj_player.x, obj_player.y) > atk_distance) {
         state = EnemyState.CHASE;
-        break;
-    }
+        break; 
+        }
+        
+        //Code for enemy-type attack
+        
+        switch (enemy_type) {
+        	case EnemyType.TYPE_1:
+                scr_enemy_attack_type_1();
+            break;
+        
+            case EnemyType.TYPE_2:
+                scr_enemy_attack_type_2();
+            break;
+        
+            case EnemyType.TYPE_3:
+                scr_enemy_attack_type_3();
+            break;    
+        }
+        
     break;           
 }

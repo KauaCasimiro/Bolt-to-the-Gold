@@ -52,3 +52,34 @@ switch (state) {
 draw_set_color(c_white);
 draw_set_halign(fa_center);
 draw_text(x, y - 16, _state_name);
+
+
+if (instance_exists(obj_player)) {
+
+    var _closest_x = clamp(x, obj_player.bbox_left, obj_player.bbox_right);
+    var _closest_y = clamp(y, obj_player.bbox_top, obj_player.bbox_bottom);
+    
+    if (point_distance(x, y, _closest_x, _closest_y) <= vision_radius) {
+        
+        var p_left   = obj_player.bbox_left;
+        var p_right  = obj_player.bbox_right;
+        var p_top    = obj_player.bbox_top;
+        var p_bottom = obj_player.bbox_bottom;
+        
+        var draw_vision_line = function(_x1, _y1, _x2, _y2) {
+            var _wall = collision_line(_x1, _y1, _x2, _y2, obj_wall, false, true);
+            if (_wall == noone) {
+                draw_set_color(c_blue); 
+            } else {
+              draw_set_color(c_red);  
+            } 
+            draw_line(_x1, _y1, _x2, _y2);
+        }
+        
+        draw_vision_line(x, y, obj_player.x, obj_player.y);
+        draw_vision_line(x, y, p_left, p_top);
+        draw_vision_line(x, y, p_right, p_top);
+        draw_vision_line(x, y, p_left, p_bottom);
+        draw_vision_line(x, y, p_right, p_bottom);
+    }
+}
