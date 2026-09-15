@@ -1,10 +1,30 @@
-var _d = keyboard_check(ord("D"));
-var _a = keyboard_check(ord("A"));
-var _w = keyboard_check(ord("W"));
-var _s = keyboard_check(ord("S"));
+scr_controlls();
 
-_x = _d - _a;
-_y = _s - _w;
+switch (state) {
+    case PlayerState.IDLE:
+        sprite_index = player_sprites.idle[facing_direction];
+        
+        if (input_x != 0 || input_y != 0) {
+            state = PlayerState.WALKING;
+        }
+    break;    
 
-x += _x * spd;
-y += _y * spd;
+    case PlayerState.WALKING:
+        
+        sprite_index = player_sprites.walking[facing_direction];
+        
+        scr_player_movement();
+        
+        if (input_x == 0 && input_y == 0) {
+            state = PlayerState.IDLE;
+        }
+    break;
+
+    case PlayerState.ATTACK:
+        
+    break;
+
+    case PlayerState.DIE:
+        
+    break;
+}

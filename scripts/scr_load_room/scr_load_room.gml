@@ -52,13 +52,6 @@ function scr_load_room(template){
 				instance_create_layer(xx * 8, yy * 8, "Scene", obj_wall);
                 mp_grid_add_cell(obj_game_controller.path_grid, xx, yy);
                 
-                // ADICIONE ISTO LOGO ABAIXO para criar a margem de segurança (Padding):
-                /*mp_grid_add_cell(obj_game_controller.path_grid, xx + 1, yy); // Direita
-                mp_grid_add_cell(obj_game_controller.path_grid, xx - 1, yy); // Esquerda
-                mp_grid_add_cell(obj_game_controller.path_grid, xx, yy + 1); // Baixo
-                mp_grid_add_cell(obj_game_controller.path_grid, xx, yy - 1); // Cima*/
-                
-                // Opcional: Bloquear as diagonais da quina para o caminho ficar ainda mais redondo
                 mp_grid_add_cell(obj_game_controller.path_grid, xx + 1, yy + 1);
                 mp_grid_add_cell(obj_game_controller.path_grid, xx - 1, yy - 1);
                 mp_grid_add_cell(obj_game_controller.path_grid, xx + 1, yy - 1);
@@ -89,5 +82,6 @@ function scr_load_room(template){
 	    }
 	}
     
-    scr_generate_enemies(8);
+    var amount = irandom_range(4, 12)
+    scr_generate_enemies(amount);
 }
