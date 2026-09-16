@@ -22,10 +22,10 @@
         ],"TileDataFormat":1,},"tilesetId":{"name":"tls_tiles","path":"tilesets/tls_tiles/tls_tiles.yy",},"userdefinedDepth":false,"visible":false,"x":0,"y":0,},
     {"$GMRTileLayer":"","%Name":"Template_4","depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Template_4","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":18,"SerialiseWidth":20,"TileCompressedData":[
           -21,2,-5,1,1,6,-6,1,1,6,-5,1,-2,2,-5,1,4,6,1,1,3,-3,1,1,6,-5,1,-2,2,-3,1,1,5,-10,1,1,5,-3,1,-2,2,-18,
-          1,-2,2,-18,1,-2,2,-6,6,-6,1,-6,6,-2,2,-18,1,2,4,2,-18,1,2,4,2,-18,1,2,4,2,-6,6,-6,1,-6,6,-2,2,-5,1,1,
-          6,-6,1,1,6,-5,1,-2,2,-5,1,1,6,-12,1,-2,2,-18,1,-2,2,-3,1,1,5,-10,1,1,5,-3,1,-2,2,-5,1,1,6,-6,1,1,6,-5,
-          1,-2,2,-5,1,1,6,-6,1,1,6,-5,1,-21,2,
-        ],"TileDataFormat":1,},"tilesetId":{"name":"tls_tiles","path":"tilesets/tls_tiles/tls_tiles.yy",},"userdefinedDepth":false,"visible":false,"x":0,"y":0,},
+          1,-2,2,-18,1,-2,2,-6,6,-6,1,-6,6,-2,2,-18,1,2,4,2,-18,1,2,4,2,-8,1,1,7,-9,1,2,4,2,-6,6,-6,1,-6,6,-2,
+          2,-5,1,1,6,-6,1,1,6,-5,1,-2,2,-5,1,1,6,-12,1,-2,2,-18,1,-2,2,-3,1,1,5,-10,1,1,5,-3,1,-2,2,-5,1,1,6,-6,
+          1,1,6,-5,1,-2,2,-5,1,1,6,-6,1,1,6,-5,1,-21,2,
+        ],"TileDataFormat":1,},"tilesetId":{"name":"tls_tiles","path":"tilesets/tls_tiles/tls_tiles.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"$GMRTileLayer":"","%Name":"Template_3","depth":400,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Template_3","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":18,"SerialiseWidth":20,"TileCompressedData":[
           -6,2,-3,4,-2,2,-3,4,-7,2,-8,1,-2,2,-8,1,-2,2,-6,1,6,3,1,2,2,1,3,-6,1,-2,2,-3,1,1,5,-4,1,-2,2,-4,1,1,
           5,-3,1,-2,2,-8,1,-2,2,-8,1,-2,2,-8,1,-2,2,-8,1,-2,2,-3,1,-12,2,-3,1,-2,2,-3,1,-12,2,-3,1,-2,2,-3,1,-12,

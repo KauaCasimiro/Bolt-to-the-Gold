@@ -1,12 +1,12 @@
 draw_self();
 
-draw_set_alpha(0.25);
+/*draw_set_alpha(0.25);
 
 draw_set_color(c_yellow);
 draw_circle(x, y, vision_radius, false)
 
 draw_set_alpha(1);
-if (state == EnemyState.CHASE && enemy_path != -1) {
+/*if (state == EnemyState.CHASE && enemy_path != -1) {
     var _target_x = path_get_point_x(enemy_path, path_point);
     var _target_y = path_get_point_y(enemy_path, path_point);
 
@@ -27,7 +27,7 @@ if (state == EnemyState.CHASE && enemy_path != -1) {
         
         draw_line_width(x1, y1, x2, y2, 3);
     }
-}
+}*/
 
 var _state_name = "";
 

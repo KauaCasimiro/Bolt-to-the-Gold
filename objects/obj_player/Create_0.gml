@@ -26,6 +26,18 @@ player_sprites = {
         spr_player_walking_down_left,
         spr_player_walking_left,
         spr_player_walking_up_left
+    ],
+    
+    attacking: [
+        spr_player_attacking_up,
+        spr_player_attacking_up_right,
+        spr_player_attacking_right,
+        spr_player_attacking_down_right,
+        spr_player_attacking_down,
+        spr_player_attacking_down_left,
+        spr_player_attacking_left,
+        spr_player_attacking_up_left
+        
     ]
 };
 
@@ -50,3 +62,5 @@ facing_direction = 0;
 hp = 3;
 
 attack_timer = 0;
+attack_hit = false;
+attack_hitbox = noone;
