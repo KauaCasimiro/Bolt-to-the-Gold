@@ -5,6 +5,11 @@ enum PlayerState {
     DIE
 };
 
+enum AttackType {
+    MELEE,
+    RANGED
+}
+
 player_sprites = {
     idle: [
         spr_player_idle_up,
@@ -38,10 +43,22 @@ player_sprites = {
         spr_player_attacking_left,
         spr_player_attacking_up_left
         
+    ],
+    
+    shooting: [
+        spr_player_shooting_up,
+        spr_player_shooting_up_right,
+        spr_player_shooting_right,
+        spr_player_shooting_down_right,
+        spr_player_shooting_down,
+        spr_player_shooting_down_left,
+        spr_player_shooting_left,
+        spr_player_shooting_up_left
     ]
 };
 
 state = PlayerState.IDLE;
+attack_type = AttackType.MELEE;
 
 input_x = 0;
 input_y = 0;
@@ -64,3 +81,30 @@ hp = 3;
 attack_timer = 0;
 attack_hit = false;
 attack_hitbox = noone;
+
+ranged_spawn_x = 0;
+ranged_spawn_y = 0;
+ranged_attack_direction = 0;
+projectile_created = false;
+
+ranged_spawn_offset = [
+    {x: -1, y: -8}, // N
+    {x:  6, y: -7}, // NE
+    {x:  7, y:  1}, // E
+    {x:  4, y:  4}, // SE
+    {x: -1, y:  6}, // S
+    {x: -5, y:  4}, // SW
+    {x: -8, y:  1}, // W
+    {x: -7, y: -7}  // NW
+];
+
+projectile_direction = [
+    90,  // N
+    45,  // NE
+    0,   // E
+    315, // SE
+    270, // S
+    225, // SW
+    180, // W
+    135  // NW
+];
