@@ -28,7 +28,7 @@ draw_set_alpha(1);
         draw_line_width(x1, y1, x2, y2, 3);
     }
 }*/
-
+/*
 var _state_name = "";
 
 switch (state) {
@@ -48,10 +48,10 @@ switch (state) {
         _state_name = "ATTACK";
     break;
 }
-
 draw_set_color(c_white);
 draw_set_halign(fa_center);
-draw_text(x, y - 16, _state_name);
+draw_text(x, y - 16, _state_name);*/
+
 
 
 if (instance_exists(obj_player)) {

@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_enemyB",
-    "path":"sprites/spr_enemyB/spr_enemyB.yy",
+    "name":"spr_zombie_idle",
+    "path":"sprites/spr_zombie_idle/spr_zombie_idle.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -76,7 +76,8 @@ max_spd = 1;
 
 facing_direction = 0;
 
-hp = 3;
+hp = 6;
+gold = 0;
 
 attack_timer = 0;
 attack_hit = false;

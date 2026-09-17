@@ -23,7 +23,7 @@ atk_distance = 16;
 
 move_direction = 0;
 
-patrol_duration = 180;
+patrol_duration = irandom_range(60,180);
 patrol_direction_timer = 0;
 patrol_timer = 0;
 patrol_change_time = 60;

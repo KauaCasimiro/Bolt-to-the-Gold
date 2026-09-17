@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_enemyS",
-    "path":"sprites/spr_enemyS/spr_enemyS.yy",
+    "name":"spr_cursed_coin",
+    "path":"sprites/spr_cursed_coin/spr_cursed_coin.yy",
   },
   "spriteMaskId":null,
   "visible":true,
