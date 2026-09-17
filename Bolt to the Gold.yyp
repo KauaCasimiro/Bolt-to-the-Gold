@@ -65,6 +65,7 @@
     {"id":{"name":"spr_enemyM","path":"sprites/spr_enemyM/spr_enemyM.yy",},},
     {"id":{"name":"spr_enemyS","path":"sprites/spr_enemyS/spr_enemyS.yy",},},
     {"id":{"name":"spr_ground","path":"sprites/spr_ground/spr_ground.yy",},},
+    {"id":{"name":"spr_hp","path":"sprites/spr_hp/spr_hp.yy",},},
     {"id":{"name":"spr_player_attacking_down_left","path":"sprites/spr_player_attacking_down_left/spr_player_attacking_down_left.yy",},},
     {"id":{"name":"spr_player_attacking_down_right","path":"sprites/spr_player_attacking_down_right/spr_player_attacking_down_right.yy",},},
     {"id":{"name":"spr_player_attacking_down","path":"sprites/spr_player_attacking_down/spr_player_attacking_down.yy",},},

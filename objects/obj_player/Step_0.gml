@@ -1,5 +1,46 @@
 scr_controlls();
 
+// FIRE COOLDOWN
+
+if (fire_cooldown > 0) {
+    fire_cooldown--;
+}
+
+
+// RELOAD
+
+if (ammo <= 0 && reload_cooldown <= 0) {
+    reload_cooldown = reload_cooldown_time;
+}
+
+if (reload_cooldown > 0) {
+    reload_cooldown--;
+
+    if (reload_cooldown <= 0) {
+        ammo = max_ammo;
+    }
+}
+
+
+// RECOIL
+
+if (recoil_speed > 0) {
+    
+    var recoil_x = lengthdir_x(recoil_speed, recoil_direction);
+    
+    var recoil_y = lengthdir_y(recoil_speed, recoil_direction);
+
+    if (!place_meeting(x + recoil_x, y, obj_wall)) {
+        x += recoil_x;
+    }
+    
+    if (!place_meeting(x, y + recoil_y, obj_wall)) {
+        y += recoil_y;
+    }
+
+    recoil_speed = lerp(recoil_speed, 0, recoil_friction);
+}
+
 switch (state) {
     case PlayerState.IDLE:
         sprite_index = player_sprites.idle[facing_direction];
@@ -15,7 +56,7 @@ switch (state) {
             attack_hit = false;
         }
         
-        if (input_ranged) {
+        if (input_ranged && fire_cooldown <= 0 && ammo > 0) {
             attack_type = AttackType.RANGED;
             state = PlayerState.ATTACK;
             image_index = 0;
@@ -34,7 +75,7 @@ switch (state) {
             state = PlayerState.IDLE;
         }
         
-        if (inpunt_melee) {
+        if (inpunt_melee && fire_cooldown <= 0 && ammo > 0) {
             attack_type = AttackType.MELEE
             state = PlayerState.ATTACK;
             image_index = 0;
@@ -52,6 +93,8 @@ switch (state) {
 
     case PlayerState.ATTACK: 
         
+        scr_player_movement();
+        
         switch (attack_type) {
         	case AttackType.MELEE: 
                 scr_attack_melee();
@@ -67,4 +110,33 @@ switch (state) {
     case PlayerState.DIE:
         
     break;
+}
+
+// RECOIL
+
+if (recoil_speed > 0) {
+    
+    var recoil_x = lengthdir_x(
+        recoil_speed,
+        recoil_direction
+    );
+    
+    var recoil_y = lengthdir_y(
+        recoil_speed,
+        recoil_direction
+    );
+
+    if (!place_meeting(x + recoil_x, y, obj_wall)) {
+        x += recoil_x;
+    }
+    
+    if (!place_meeting(x, y + recoil_y, obj_wall)) {
+        y += recoil_y;
+    }
+
+    recoil_speed = lerp(
+        recoil_speed,
+        0,
+        recoil_friction
+    );
 }

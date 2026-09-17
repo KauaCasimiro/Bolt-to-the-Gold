@@ -108,3 +108,15 @@ projectile_direction = [
     180, // W
     135  // NW
 ];
+
+ammo = 6;
+max_ammo = 6;
+
+fire_cooldown = 0;
+fire_cooldown_time = 10;
+
+reload_cooldown = 0;
+reload_cooldown_time = 60;
+recoil_force = 2;
+recoil_speed = 0;
+recoil_friction = 0.2;

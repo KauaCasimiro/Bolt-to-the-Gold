@@ -1,8 +1,6 @@
 function scr_attack_melee(){
      sprite_index = player_sprites.attacking[facing_direction];
 
-    scr_player_movement();
-
     if (image_index >= 2 && !attack_hit) {
 
         attack_hitbox = instance_create_layer(
@@ -31,8 +29,14 @@ function scr_attack_melee(){
         attack_hitbox = noone;
     }
 
-    if (image_index >= image_number - 1) {
-        state = PlayerState.IDLE;
-        image_index = 0;
+    if (image_index >= image_number - 1) { 
+        image_index = 0; 
+        projectile_created = false; 
+        
+        if (input_x != 0 || input_y != 0) { 
+            state = PlayerState.WALKING;
+       } else { 
+            state = PlayerState.IDLE; 
+        }
     }
 }
