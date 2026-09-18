@@ -89,14 +89,14 @@ ranged_attack_direction = 0;
 projectile_created = false;
 
 ranged_spawn_offset = [
-    {x: -1, y: -8}, // N
-    {x:  6, y: -7}, // NE
-    {x:  7, y:  1}, // E
-    {x:  4, y:  4}, // SE
-    {x: -1, y:  6}, // S
-    {x: -5, y:  4}, // SW
-    {x: -8, y:  1}, // W
-    {x: -7, y: -7}  // NW
+    {x: -4,  y: 9},   // N
+    {x: 7,  y: 10},  // NE
+    {x: 11, y: 4},  // E
+    {x: 8,  y: 12},  // SE
+    {x: -4,  y: 13},  // S
+    {x: 4,  y: 12},  // SW
+    {x: 4,  y: 4},  // W
+    {x: 4,  y: 10}   // NW
 ];
 
 projectile_direction = [

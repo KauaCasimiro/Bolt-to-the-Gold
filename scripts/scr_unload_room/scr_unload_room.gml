@@ -8,9 +8,7 @@ function scr_unload_room(){
             var _y = yy * 8;
             
             // GROUND
-            if (tile_index == 1 || tile_index == 5 || tile_index == 7 ||
-                tile_index >= 14 && tile_index <= 19 ||
-                tile_index == 24 || tile_index == 25) {
+            if (tile_index == 1 || tile_index == 5 || tile_index == 7 || tile_index >= 14 && tile_index <= 19 || tile_index == 24 || tile_index == 25) {
                 
                 var ground = instance_position(_x, _y, obj_ground);
                 
@@ -22,14 +20,22 @@ function scr_unload_room(){
             }
             
             // WALL
-            if (tile_index == 2 ||
-                tile_index >= 8 && tile_index <= 13 ||
-                tile_index == 23) {
+            if (tile_index == 2 || tile_index >= 8 && tile_index <= 13 || tile_index == 23) {
                 
                 var wall = instance_position(_x, _y, obj_wall);
                 
                 if (wall != noone) {
                     with (wall) {
+                        instance_destroy();
+                    }
+                }
+            }
+            
+            if (tile_index == 3) {
+                var chest = instance_position(_x, _y, obj_chest);
+                
+                if (chest != noone) {
+                    with (chest) {
                         instance_destroy();
                     }
                 }
@@ -53,6 +59,16 @@ function scr_unload_room(){
                 with (obj_enemy_spawner) {
                     instance_destroy();
                     show_debug_message("Spawner destroyed");
+                }
+            }
+            
+            if (tile_index == 6) {
+                var trap = instance_position(_x, _y, obj_trap);
+                
+                if (trap != noone) {
+                    with(trap) {
+                        instance_destroy();
+                    }
                 }
             }
         }

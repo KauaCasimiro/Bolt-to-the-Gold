@@ -100,6 +100,12 @@ function scr_load_room(template){
                 
 	        }
             
+            if (tile_index == 3) {
+                var chest = instance_create_layer(xx * 8, yy * 8, "Scene", obj_chest);
+                //chest.sprite_index = spr
+                image_speed = 0;
+            }
+            
             if (tile_index == 8) {
                 var wall_corner_right_up = instance_create_layer(xx * 8, yy * 8, "Scene", obj_wall);
                 wall_corner_right_up.sprite_index = spr_wall_corner_right_up;
@@ -180,6 +186,10 @@ function scr_load_room(template){
 	            instance_create_layer(xx * 8, yy * 8, "Scene", obj_ground)
 	        }
             
+            if (tile_index == 6) {
+                instance_create_layer(xx * 8, yy * 8, "Scene", obj_trap);
+                mp_grid_add_cell(obj_game_controller.path_grid, xx, yy);
+            }
         
 	        if (tile_index == 7)
 	        {
@@ -196,5 +206,5 @@ function scr_load_room(template){
 	}
     
     var amount = irandom_range(4, 12)
-    scr_generate_enemies(amount);
+    scr_generate_enemies(0);
 }

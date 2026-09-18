@@ -28,7 +28,9 @@ draw_set_alpha(1);
         draw_line_width(x1, y1, x2, y2, 3);
     }
 }*/
-/*
+
+draw_set_font(fnt_gb_hud);
+
 var _state_name = "";
 
 switch (state) {
@@ -50,7 +52,7 @@ switch (state) {
 }
 draw_set_color(c_white);
 draw_set_halign(fa_center);
-draw_text(x, y - 16, _state_name);*/
+draw_text(x, y - 16, _state_name);
 
 
 

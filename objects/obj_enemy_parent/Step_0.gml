@@ -1,3 +1,7 @@
+if (attack_cooldown > 0) {
+    attack_cooldown--;
+}
+
 switch (state) {
 	case EnemyState.IDLE:
         //Code to state idle
@@ -68,7 +72,15 @@ switch (state) {
             break;
         }
         
-        if (point_distance(x, y, obj_player.x, obj_player.y) <= atk_distance) {
+        if (point_distance(x, y, obj_player.x, obj_player.y) <= atk_distance && attack_cooldown <= 0) {
+            
+            show_debug_message(
+    "BAT >>> CHASE -> ATTACK | Distancia: " +
+    string(point_distance(x, y, obj_player.x, obj_player.y)) +
+    " | Cooldown: " +
+    string(attack_cooldown)
+);
+            
             state = EnemyState.ATTACK;
             
             if (enemy_path != -1) {
@@ -145,15 +157,15 @@ switch (state) {
 
     case EnemyState.ATTACK:
         //Code to attack player
-         if (!scr_can_see_player()) {
+         /*if (!scr_can_see_player()) {
         state = EnemyState.CHASE;
         break; 
         }
 
-        if (point_distance(x, y, obj_player.x, obj_player.y) > atk_distance) {
+        /*if (point_distance(x, y, obj_player.x, obj_player.y) > atk_distance) {
         state = EnemyState.CHASE;
         break; 
-        }
+        }*/
         
         //Code for enemy-type attack
         
@@ -173,3 +185,6 @@ switch (state) {
         
     break;           
 }
+
+update_facing_direction();
+update_sprite_direction();
