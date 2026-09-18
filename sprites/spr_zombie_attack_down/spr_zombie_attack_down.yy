@@ -60,7 +60,7 @@
     },
     "name":"spr_zombie_attack_down",
     "playback":1,
-    "playbackSpeed":2.2,
+    "playbackSpeed":10.2,
     "playbackSpeedType":0,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",

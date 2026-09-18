@@ -21,9 +21,8 @@ function scr_attack_melee(){
     }
 
     if (image_index >= 3 && instance_exists(attack_hitbox)) {
-        gold++;
+        
         with (attack_hitbox) {
-            
             instance_destroy();
             
         }

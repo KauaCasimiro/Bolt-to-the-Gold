@@ -46,27 +46,140 @@ function scr_load_room(template){
 	        if (tile_index == 1) {
 	            instance_create_layer(xx * 8, yy * 8, "Scene", obj_ground)
 	        }
+            
+            if (tile_index == 14) {
+	            var ground_corner_left_up = instance_create_layer(xx * 8, yy * 8, "Scene", obj_ground)
+                ground_corner_left_up.sprite_index = spr_ground_corner_left_up;
+	        }
+            
+            if (tile_index == 15) {
+	            var ground_corner_left_down = instance_create_layer(xx * 8, yy * 8, "Scene", obj_ground)
+                ground_corner_left_down.sprite_index = spr_ground_corner_left_down;
+	        }
+            
+            if (tile_index == 16) {
+	            var ground_corner_right_up = instance_create_layer(xx * 8, yy * 8, "Scene", obj_ground)
+                ground_corner_right_up.sprite_index = spr_ground_corner_right_up;
+	        }
+            
+            if (tile_index == 17) {
+	            var ground_corner_right_down = instance_create_layer(xx * 8, yy * 8, "Scene", obj_ground)
+                ground_corner_right_down.sprite_index = spr_ground_corner_right_down;
+	        }
+            
+            if (tile_index == 18) {
+	            var ground_up = instance_create_layer(xx * 8, yy * 8, "Scene", obj_ground)
+                ground_up.sprite_index = spr_ground_up;
+	        }
+            
+            if (tile_index == 19) {
+	            var ground_down = instance_create_layer(xx * 8, yy * 8, "Scene", obj_ground)
+                ground_down.sprite_index = spr_ground_down;
+	        }
+            
+            if (tile_index == 24) {
+	            var ground_right = instance_create_layer(xx * 8, yy * 8, "Scene", obj_ground)
+                ground_right.sprite_index = spr_ground_corner_right_edge;
+	        }
+            
+            if (tile_index == 25) {
+	            var ground_left = instance_create_layer(xx * 8, yy * 8, "Scene", obj_ground)
+                ground_left.sprite_index = spr_ground_corner_left_edge;
+	        }
         
 	        if (tile_index == 2)
 	        {
-				instance_create_layer(xx * 8, yy * 8, "Scene", obj_wall);
+				var wall_left = instance_create_layer(xx * 8, yy * 8, "Scene", obj_wall);
+                wall_left.sprite_index = spr_wall_edge_left;
                 mp_grid_add_cell(obj_game_controller.path_grid, xx, yy);
+                
+                /*mp_grid_add_cell(obj_game_controller.path_grid, xx + 1, yy + 1);
+                mp_grid_add_cell(obj_game_controller.path_grid, xx - 1, yy - 1);
+                mp_grid_add_cell(obj_game_controller.path_grid, xx + 1, yy - 1);
+                mp_grid_add_cell(obj_game_controller.path_grid, xx - 1, yy + 1);*/
+                
+	        }
+            
+            if (tile_index == 8) {
+                var wall_corner_right_up = instance_create_layer(xx * 8, yy * 8, "Scene", obj_wall);
+                wall_corner_right_up.sprite_index = spr_wall_corner_right_up;
                 
                 mp_grid_add_cell(obj_game_controller.path_grid, xx + 1, yy + 1);
                 mp_grid_add_cell(obj_game_controller.path_grid, xx - 1, yy - 1);
                 mp_grid_add_cell(obj_game_controller.path_grid, xx + 1, yy - 1);
                 mp_grid_add_cell(obj_game_controller.path_grid, xx - 1, yy + 1);
+            }
+            
+            if (tile_index == 9) {
+                var wall_corner_right_down = instance_create_layer(xx * 8, yy * 8, "Scene", obj_wall);
+                wall_corner_right_down.sprite_index = spr_wall_corner_right_down;
                 
-	        }
+                mp_grid_add_cell(obj_game_controller.path_grid, xx + 1, yy + 1);
+                mp_grid_add_cell(obj_game_controller.path_grid, xx - 1, yy - 1);
+                mp_grid_add_cell(obj_game_controller.path_grid, xx + 1, yy - 1);
+                mp_grid_add_cell(obj_game_controller.path_grid, xx - 1, yy + 1);
+            }
+            
+            if (tile_index == 10) {
+                var wall_corner_left_up = instance_create_layer(xx * 8, yy * 8, "Scene", obj_wall);
+                wall_corner_left_up.sprite_index = spr_wall_corner_left_up;
+                
+                mp_grid_add_cell(obj_game_controller.path_grid, xx + 1, yy + 1);
+                mp_grid_add_cell(obj_game_controller.path_grid, xx - 1, yy - 1);
+                mp_grid_add_cell(obj_game_controller.path_grid, xx + 1, yy - 1);
+                mp_grid_add_cell(obj_game_controller.path_grid, xx - 1, yy + 1);
+            }
+            
+            if (tile_index == 11) {
+                var wall_corner_left_down = instance_create_layer(xx * 8, yy * 8, "Scene", obj_wall);
+                wall_corner_left_down.sprite_index = spr_wall_corner_left_down;
+                
+                mp_grid_add_cell(obj_game_controller.path_grid, xx + 1, yy + 1);
+                mp_grid_add_cell(obj_game_controller.path_grid, xx - 1, yy - 1);
+                mp_grid_add_cell(obj_game_controller.path_grid, xx + 1, yy - 1);
+                mp_grid_add_cell(obj_game_controller.path_grid, xx - 1, yy + 1);
+            }
+            
+            if (tile_index == 12) {
+                var wall_up = instance_create_layer(xx * 8, yy * 8, "Scene", obj_wall);
+                wall_up.sprite_index = spr_wall_up;
+            }
+            
+            if (tile_index == 13) {
+                var wall_down = instance_create_layer(xx * 8, yy * 8, "Scene", obj_wall);
+                wall_down.sprite_index = spr_wall_down;
+            }
+            
+            if (tile_index == 23) {
+                var wall_right = instance_create_layer(xx * 8, yy * 8, "Scene", obj_wall);
+                wall_right.sprite_index = spr_wall_edge_right;
+            }
+            
         
 			if (tile_index == 4) {
 				instance_create_layer(xx * 8, yy * 8, "Scene", obj_door);
+			}
+            
+            if (tile_index == 20) {
+				var path_right = instance_create_layer(xx * 8, yy * 8, "Scene", obj_door);
+                path_right.sprite_index = spr_path_right;
+			}
+            
+            if (tile_index == 21) {
+				var path_left = instance_create_layer(xx * 8, yy * 8, "Scene", obj_door);
+                path_left.sprite_index = spr_path_left;
+			}
+            
+            if (tile_index == 22) {
+				var path_down = instance_create_layer(xx * 8, yy * 8, "Scene", obj_door);
+                path_down.sprite_index = spr_path_down;
 			}
 			
 	        if (tile_index == 5) {
 	            instance_create_layer(xx * 8 + 4, yy * 8 + 4, "Instances", obj_enemy_spawner);
 	            instance_create_layer(xx * 8, yy * 8, "Scene", obj_ground)
 	        }
+            
         
 	        if (tile_index == 7)
 	        {

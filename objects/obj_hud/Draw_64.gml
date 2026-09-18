@@ -1,7 +1,7 @@
-draw_set_color(c_teal);
+draw_set_color(#3A5068);
 draw_rectangle(0, 135, 160, 144, false);
 
-draw_set_color(c_white);
+draw_set_color(#CFAB51);
 
 draw_set_font(fnt_gb_hud);
 draw_set_halign(fa_left);
