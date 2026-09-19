@@ -1,5 +1,5 @@
 function scr_attack_ranged(){
-    sprite_index = player_sprites.shooting[facing_direction];
+    sprite_index = player_sprites.shooting[sprite_direction];
     
     if (image_index < 1 && !projectile_created) {
         ranged_attack_direction = facing_direction;

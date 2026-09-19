@@ -1,5 +1,5 @@
 function scr_attack_melee(){
-     sprite_index = player_sprites.attacking[facing_direction];
+     sprite_index = player_sprites.attacking[sprite_direction];
 
     if (image_index >= 2 && !attack_hit) {
 
@@ -10,7 +10,7 @@ function scr_attack_melee(){
             obj_collisor_attack
         );
 
-        attack_hitbox.image_index = facing_direction;
+        attack_hitbox.image_index = sprite_direction;
 
         attack_hit = true;
     }

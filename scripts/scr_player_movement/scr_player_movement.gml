@@ -42,7 +42,6 @@ function scr_player_movement(){
         x = next_x;
     }
        
-       
     var next_y = y + move_y;
        
     if (!place_meeting(x, next_y, obj_wall)) { 

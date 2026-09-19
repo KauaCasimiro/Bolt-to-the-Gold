@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_zombie_idle",
-    "path":"sprites/spr_zombie_idle/spr_zombie_idle.yy",
+    "name":"spr_zombie_idle_down",
+    "path":"sprites/spr_zombie_idle_down/spr_zombie_idle_down.yy",
   },
   "spriteMaskId":null,
   "visible":true,

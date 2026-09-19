@@ -41,9 +41,22 @@ if (recoil_speed > 0) {
     recoil_speed = lerp(recoil_speed, 0, recoil_friction);
 }
 
+if (facing_direction == 0) {
+    sprite_direction = 0; // N
+}
+else if (facing_direction == 1 || facing_direction == 2 || facing_direction == 3) {
+    sprite_direction = 1; // E
+}
+else if (facing_direction == 4) {
+    sprite_direction = 2; // S
+}
+else {
+    sprite_direction = 3; // W
+}
+
 switch (state) {
     case PlayerState.IDLE:
-        sprite_index = player_sprites.idle[facing_direction];
+        sprite_index = player_sprites.idle[sprite_direction];
         
         if (input_x != 0 || input_y != 0) {
             state = PlayerState.WALKING;
@@ -67,7 +80,7 @@ switch (state) {
 
     case PlayerState.WALKING:
         
-        sprite_index = player_sprites.walking[facing_direction];
+        sprite_index = player_sprites.walking[sprite_direction];
         
         scr_player_movement();
         
@@ -139,4 +152,8 @@ if (recoil_speed > 0) {
         0,
         recoil_friction
     );
+    
+    if (recoil_speed < 0.05) {
+        recoil_speed = 0;
+    }
 }

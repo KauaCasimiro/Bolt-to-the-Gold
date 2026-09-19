@@ -1,4 +1,4 @@
-draw_set_alpha(0.7);
+/*draw_set_alpha(0.7);
 
 draw_set_color(c_white);
 draw_circle(x, y, spawn_radius, false);
@@ -46,4 +46,4 @@ while (angle < 360)
 }
 
 draw_set_alpha(1);
-draw_set_color(c_white);
+draw_set_color(c_white);*/

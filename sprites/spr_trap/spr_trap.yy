@@ -28,8 +28,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"hole",
-    "path":"folders/Sprites/Templates/hole.yy",
+    "name":"trap",
+    "path":"folders/Sprites/Templates/trap.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -72,24 +72,32 @@ switch (state) {
             break;
         }
         
-        if (point_distance(x, y, obj_player.x, obj_player.y) <= atk_distance && attack_cooldown <= 0) {
-            
-            show_debug_message(
-    "BAT >>> CHASE -> ATTACK | Distancia: " +
-    string(point_distance(x, y, obj_player.x, obj_player.y)) +
-    " | Cooldown: " +
-    string(attack_cooldown)
-);
-            
-            state = EnemyState.ATTACK;
-            
+        
+        
+        if (enemy_type == EnemyType.TYPE_5) { 
+            if (point_distance(x, y, obj_player.x, obj_player.y) <= atk_distance) { 
+                state = EnemyState.ATTACK;
+                
+                move_direction = point_direction(x, y, obj_player.x, obj_player.y); 
+                update_facing_direction();
+                
+                if (enemy_path != -1) { 
+                    path_delete(enemy_path);
+                    enemy_path = -1;
+                } 
+                
+                path_timer = 0; 
+                break;
+            } 
+        } else if (point_distance(x, y, obj_player.x, obj_player.y) <= atk_distance && attack_cooldown <= 0) { 
+            state = EnemyState.ATTACK; 
             if (enemy_path != -1) {
                 path_delete(enemy_path);
                 enemy_path = -1;
             }
-            
-            path_timer = 0;
-            break;
+    
+        path_timer = 0;
+        break;
         }
         
         path_timer++;
@@ -180,6 +188,15 @@ switch (state) {
         
             case EnemyType.TYPE_3:
                 scr_enemy_attack_type_3();
+            break;
+        
+            case EnemyType.TYPE_4:
+                show_debug_message("Entrou no estado do inimigo 4")
+                scr_enemy_attack_type_4();
+            break;
+        
+            case EnemyType.TYPE_5:
+                scr_enemy_attack_type_5();
             break;    
         }
         

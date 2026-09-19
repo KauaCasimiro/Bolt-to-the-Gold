@@ -4,13 +4,15 @@ if (damage_timer > 0) {
 }
 
 
-// Verifica se o jogador está sobre a trap
-var has_target = point_in_rectangle(
-    obj_player.x,
-    obj_player.y,
-    x - 5,
-    y + 3,
-    x + 5,
+// Verifica se o retângulo do jogador está sobre a trap
+var has_target = rectangle_in_rectangle(
+    obj_player.x - 3,
+    obj_player.y + 2,
+    obj_player.x + 3,
+    obj_player.y + 8,
+    x,
+    y,
+    x + 8,
     y + 8
 );
 
@@ -54,8 +56,17 @@ if (image_index >= 2 && !damage_applied) {
     damage_applied = true;
 
     // PLAYER
-    if (place_meeting(x, y, obj_player)) {
-        obj_player.hp -= damage;
+    if (rectangle_in_rectangle(
+        obj_player.x - 6,
+        obj_player.y + 2,
+        obj_player.x + 6,
+        obj_player.y + 8,
+        x,
+        y,
+        x + 8,
+        y + 8
+    )) {
+        obj_player.take_damage(x, y, obj_player.recoil_force * 0.5);
     }
 
 

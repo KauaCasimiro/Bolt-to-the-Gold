@@ -17,3 +17,5 @@ dash_timer = 0;
 
 dash_start_distance = 0;
 dash_end_distance = 0;
+
+damage_applied = false;

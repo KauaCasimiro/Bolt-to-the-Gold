@@ -1,3 +1,12 @@
 function scr_enemy_attack_type_1(){
-    //show_debug_message("Enemy Type 1 attacking");
+    if (attack_cooldown <= 0) {
+        if (point_distance(x, y, obj_player.x, obj_player.y) <= atk_distance) {
+            obj_player.take_damage(x, y, obj_player.recoil_force);
+        }
+
+        attack_cooldown = attack_cooldown_time;
+        state = EnemyState.CHASE;
+    }
+    
+    //show_debug_message("ESTATUA ATAKOU ERRONEAMENTE")
 }
