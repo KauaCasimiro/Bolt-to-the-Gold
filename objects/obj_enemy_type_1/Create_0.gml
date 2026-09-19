@@ -13,4 +13,7 @@ enemy_sprites = {
 
 attack_damage = 1;
 
-move_spd = 0.2;
+move_spd = 0.27
+
+
+;

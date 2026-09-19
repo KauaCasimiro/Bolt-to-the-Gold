@@ -106,8 +106,12 @@ recoil_force = 2;
 recoil_speed = 0;
 recoil_friction = 0.2;
 
+damage_flash = 0;
+
 function take_damage(source_x, source_y, _recoil_force) {
     hp -= 1;
+    
+    damage_flash = 18;
 
     var damage_direction = point_direction(
         x,

@@ -2,6 +2,72 @@ if (attack_cooldown > 0) {
     attack_cooldown--;
 }
 
+if (damage_flash > 0) {
+    damage_flash--;
+    
+    if (damage_flash mod 2 == 0) {
+        image_alpha = 0;
+    }
+    else {
+        image_alpha = 1;
+    }
+}
+else {
+    image_alpha = 1;
+}
+
+if (recoil_speed > 0) {
+    
+    var recoil_x = lengthdir_x(
+        recoil_speed,
+        recoil_direction
+    );
+    
+    var recoil_y = lengthdir_y(
+        recoil_speed,
+        recoil_direction
+    );
+
+    // Horizontal
+    if (check_collision(x + recoil_x, y)) {
+        
+        while (!check_collision(x + sign(recoil_x), y)) {
+            x += sign(recoil_x);
+        }
+        
+    }
+    else {
+        x += recoil_x;
+    }
+
+    // Vertical
+    if (check_collision(x, y + recoil_y)) {
+        
+        while (!check_collision(x, y + sign(recoil_y))) {
+            y += sign(recoil_y);
+        }
+        
+    }
+    else {
+        y += recoil_y;
+    }
+
+    recoil_speed = lerp(
+        recoil_speed,
+        0,
+        0.2
+    );
+
+    if (recoil_speed < 0.05) {
+        recoil_speed = 0;
+    }
+
+    update_facing_direction();
+    update_sprite_direction();
+    
+    exit;
+}
+
 switch (state) {
 	case EnemyState.IDLE:
         //Code to state idle
@@ -22,15 +88,15 @@ switch (state) {
 
     case EnemyState.PATROL:
         //Code to enemy patrolling
-        var next_x = x + lengthdir_x(move_spd, move_direction);
-        var next_y = y + lengthdir_y(move_spd, move_direction);
+        var move_x = lengthdir_x(move_spd, move_direction); 
+        var move_y = lengthdir_y(move_spd, move_direction); 
         
-        if (check_collision(next_x, next_y)) {
-            move_direction = irandom(359);
-        } else {
-            x = next_x;
-            y = next_y;
+        if (check_collision(x + move_x, y) || check_collision(x, y + move_y)) { 
+            move_direction = irandom(359); 
+        } else { 
+            move_with_collision(move_x, move_y); 
         }
+        
         
         patrol_timer++;
         patrol_direction_timer++
@@ -121,16 +187,10 @@ switch (state) {
             if (enemy_path == -1) {
                 move_direction = point_direction(x, y, obj_player.x, obj_player.y);
                 
-                var move_x = lengthdir_x(move_spd, move_direction);
-                var move_y = lengthdir_y(move_spd, move_direction);
+                var move_xx = lengthdir_x(move_spd, move_direction);
+                var move_yy = lengthdir_y(move_spd, move_direction);
                 
-                if (!check_collision(x + move_x, y)) {
-                    x += move_x;
-                }
-                
-                if (!check_collision(x, y + move_y)) {
-                    y += move_y;
-                }
+                move_with_collision(move_xx, move_yy);
             }
         }
         
@@ -143,13 +203,7 @@ switch (state) {
             var _next_x = lengthdir_x(move_spd, move_direction); 
             var _next_y = lengthdir_y(move_spd, move_direction);
              
-            if (!check_collision(x + _next_x, y)) { 
-                x += _next_x; 
-            }
-            
-            if (!check_collision(x, y + _next_y)) {
-                y+= _next_y;
-            }
+            move_with_collision(_next_x, _next_y);
             
             if (point_distance(x, y, target_x, target_y) <= move_spd) { 
                 path_point++; 

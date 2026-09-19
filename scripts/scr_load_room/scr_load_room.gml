@@ -206,5 +206,5 @@ function scr_load_room(template){
 	}
     
     var amount = irandom_range(4, 12)
-    scr_generate_enemies(0);
+    scr_generate_enemies(amount);
 }

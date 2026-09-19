@@ -6,7 +6,16 @@ function scr_generate_run(room_count){
     var sequence = [];
     
     for (var i = 0; i < room_count; i++) {
-        array_push(sequence, irandom_range(1, 5));
+        
+        var template = irandom_range(1, 5)
+        
+        if (i > 0) {
+            while (template == sequence[i - 1]) {
+            	template = irandom_range(1, 5)
+            }
+        }
+        
+        array_push(sequence, template);
     }
     
     show_debug_message("Seed: " + string(seed));

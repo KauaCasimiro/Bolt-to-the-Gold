@@ -37,14 +37,29 @@ function scr_player_movement(){
     }
        
     var next_x = x + move_x;
-       
-    if (!place_meeting(next_x, y, obj_wall)) { 
-        x = next_x;
+
+if (place_meeting(next_x, y, obj_wall)) {
+    while (!place_meeting(x + sign(move_x), y, obj_wall)) {
+        x += sign(move_x);
     }
-       
-    var next_y = y + move_y;
-       
-    if (!place_meeting(x, next_y, obj_wall)) { 
-        y = next_y;
+    
+    move_x = 0;
+}
+else {
+    x = next_x;
+}
+
+
+var next_y = y + move_y;
+
+if (place_meeting(x, next_y, obj_wall)) {
+    while (!place_meeting(x, y + sign(move_y), obj_wall)) {
+        y += sign(move_y);
     }
+    
+    move_y = 0;
+}
+else {
+    y = next_y;
+}
 }

@@ -49,8 +49,45 @@ attack_cooldown_time = 60;
 
 last_vertical_direction = EnemyDirection.DOWN;
 
+hp = 3;
+
+recoil_direction = 0;
+recoil_speed = 0;
+
+damage_flash = 0;
+
+function move_with_collision(_move_x, _move_y) {
+    
+    var next_x = x + _move_x;
+    
+    if (check_collision(next_x, y)) {
+        while (!check_collision(x + sign(_move_x), y)) {
+            x += sign(_move_x);
+        }
+        
+        _move_x = 0;
+    }
+    else {
+        x = next_x;
+    }
+    
+    
+    var next_y = y + _move_y;
+    
+    if (check_collision(x, next_y)) {
+        while (!check_collision(x, y + sign(_move_y))) {
+            y += sign(_move_y);
+        }
+        
+        _move_y = 0;
+    }
+    else {
+        y = next_y;
+    }
+}
+
 function check_collision(_x, _y) {
-    return place_meeting(_x, _y, obj_wall) || place_meeting(_x, _y, obj_door);
+    return place_meeting(_x, _y, obj_wall) || place_meeting(_x, _y, obj_door) || place_meeting(_x, _y, obj_chest);
 }
 
 function update_facing_direction() {
@@ -306,5 +343,46 @@ function update_sprite_direction() {
             }
             
         break;
+    }
+}
+
+function take_damage(source_x, source_y, _recoil_force) {
+    hp -= 1;
+
+    damage_flash = 18;
+
+    var damage_direction = point_direction(
+        x,
+        y,
+        source_x,
+        source_y
+    );
+
+    recoil_direction = damage_direction + 180;
+    recoil_speed = _recoil_force;
+
+    if (damage_direction >= 337.5 || damage_direction < 22.5) {
+        facing_direction = 2; // E
+    }
+    else if (damage_direction < 67.5) {
+        facing_direction = 3; // SE
+    }
+    else if (damage_direction < 112.5) {
+        facing_direction = 0; // S
+    }
+    else if (damage_direction < 157.5) {
+        facing_direction = 5; // SW
+    }
+    else if (damage_direction < 202.5) {
+        facing_direction = 6; // W
+    }
+    else if (damage_direction < 247.5) {
+        facing_direction = 7; // NW
+    }
+    else if (damage_direction < 292.5) {
+        facing_direction = 4; // N
+    }
+    else {
+        facing_direction = 1; // NE
     }
 }

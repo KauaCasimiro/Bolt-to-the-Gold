@@ -81,8 +81,7 @@ if (image_index >= 2 && !damage_applied) {
         }
 
         if (place_meeting(x, y, enemy)) {
-            // Futuramente:
-            // enemy.hp -= damage;
+            obj_enemy_parent.take_damage(x, y, 2.5)
         }
     }
 }

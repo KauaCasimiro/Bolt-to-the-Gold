@@ -21,24 +21,54 @@ if (reload_cooldown > 0) {
     }
 }
 
-
 // RECOIL
 
 if (recoil_speed > 0) {
     
     var recoil_x = lengthdir_x(recoil_speed, recoil_direction);
-    
     var recoil_y = lengthdir_y(recoil_speed, recoil_direction);
 
-    if (!place_meeting(x + recoil_x, y, obj_wall)) {
+    // Horizontal
+    if (place_meeting(x + recoil_x, y, obj_wall)) {
+        
+        while (!place_meeting(x + sign(recoil_x), y, obj_wall)) {
+            x += sign(recoil_x);
+        }
+        
+    }
+    else {
         x += recoil_x;
     }
-    
-    if (!place_meeting(x, y + recoil_y, obj_wall)) {
+
+    // Vertical
+    if (place_meeting(x, y + recoil_y, obj_wall)) {
+        
+        while (!place_meeting(x, y + sign(recoil_y), obj_wall)) {
+            y += sign(recoil_y);
+        }
+        
+    }
+    else {
         y += recoil_y;
     }
 
     recoil_speed = lerp(recoil_speed, 0, recoil_friction);
+}
+
+
+// DIREÇÃO DO SPRITE
+
+if (facing_direction == 0) {
+    sprite_direction = 0; // N
+}
+else if (facing_direction == 1 || facing_direction == 2 || facing_direction == 3) {
+    sprite_direction = 1; // E
+}
+else if (facing_direction == 4) {
+    sprite_direction = 2; // S
+}
+else {
+    sprite_direction = 3; // W
 }
 
 if (facing_direction == 0) {
@@ -52,6 +82,20 @@ else if (facing_direction == 4) {
 }
 else {
     sprite_direction = 3; // W
+}
+
+if (damage_flash > 0) {
+    damage_flash--;
+    
+    if (damage_flash mod 2 == 0) {
+        image_alpha = 0;
+    }
+    else {
+        image_alpha = 1;
+    }
+}
+else {
+    image_alpha = 1;
 }
 
 switch (state) {
@@ -139,11 +183,25 @@ if (recoil_speed > 0) {
         recoil_direction
     );
 
-    if (!place_meeting(x + recoil_x, y, obj_wall)) {
+    // Horizontal
+    if (place_meeting(x + recoil_x, y, obj_wall)) {
+        
+        while (!place_meeting(x + sign(recoil_x), y, obj_wall)) {
+            x += sign(recoil_x);
+        }
+        
+    } else {
         x += recoil_x;
     }
     
-    if (!place_meeting(x, y + recoil_y, obj_wall)) {
+    // Vertical
+    if (place_meeting(x, y + recoil_y, obj_wall)) {
+        
+        while (!place_meeting(x, y + sign(recoil_y), obj_wall)) {
+            y += sign(recoil_y);
+        }
+        
+    } else {
         y += recoil_y;
     }
 
